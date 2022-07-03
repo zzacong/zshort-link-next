@@ -17,6 +17,9 @@
     "@trpc/next": "^9.25.3",
     "@trpc/react": "^9.25.3",
     "@trpc/server": "^9.25.3",
+    "clsx": "^1.2.0",
+    "cuid": "^2.1.8",
+    "lodash": "^4.17.21",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -25,6 +28,7 @@
     "zod": "^3.17.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.182",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
