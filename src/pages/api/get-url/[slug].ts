@@ -19,7 +19,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(404).send({ message: 'slug not found' })
     }
 
-    return res.redirect(data.url)
+    res.setHeader('Content-Type', 'application/json')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Cache-Control', 's-maxage=1000000000, stale-while-revalidate')
+    return res.send(data)
   } catch (error) {
     console.error(error)
     const err = error as ZodError
