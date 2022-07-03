@@ -1,11 +1,13 @@
 import type { ChangeEventHandler, FormEventHandler } from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import clsx from 'clsx'
 import random from 'random-words'
 import debounce from 'lodash/debounce'
 import { ClipboardCopyIcon, RefreshIcon } from '@heroicons/react/outline'
-import ClipboardJS from 'clipboard'
+import { Popover } from '@headlessui/react'
+import { AnimatePresence, motion } from 'framer-motion'
+import copy from 'copy-to-clipboard'
 
 import { trpc } from '$lib/trpc'
 
@@ -53,17 +55,17 @@ export default function CreateLinkForm() {
     [createSlug, form]
   )
 
-  useEffect(() => {
-    const clipboard = new ClipboardJS('.copy-btn')
-    clipboard.on('success', e => {
-      e.clearSelection()
-    })
-    return () => clipboard.destroy()
-  }, [])
+  const onCopy = useCallback(
+    (close: () => void) => {
+      setTimeout(() => close(), 1200)
+      copy(`${url}/${form.slug}`)
+    },
+    [form.slug, url]
+  )
 
   return (
     <div className="w-full max-w-xl md:w-2/3 xl:w-1/2">
-      <h1 className="mb-14 text-center text-4xl font-extrabold tracking-wider xl:text-6xl">
+      <h1 className="mb-20 text-center text-4xl font-extrabold tracking-wider xl:text-6xl">
         Link Shortner
       </h1>
 
@@ -72,9 +74,38 @@ export default function CreateLinkForm() {
           <div className="flex gap-2 md:gap-4">
             <h2 className="flex-grow break-all rounded bg-white/90 px-4 py-2 font-mono text-lg text-gray-800 lg:text-xl">{`${url}/${form.slug}`}</h2>
 
-            <button className="button copy-btn" data-clipboard-text={`${url}/${form.slug}`}>
-              <ClipboardCopyIcon className="h-6 w-6" />
-            </button>
+            <Popover className="relative flex">
+              {({ open, close }) => (
+                <>
+                  <Popover.Button onClick={() => onCopy(close)} className="button copy-btn">
+                    <ClipboardCopyIcon className="h-6 w-6" />
+                  </Popover.Button>
+
+                  <AnimatePresence>
+                    {open && (
+                      <Popover.Panel
+                        static
+                        as={motion.div}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute bottom-full right-1/2 z-10 translate-x-1/2 -translate-y-4 whitespace-nowrap rounded-lg bg-white/90 py-2 px-4 text-sm text-gray-800"
+                      >
+                        <span
+                          className={clsx(
+                            'relative',
+                            "after:absolute after:top-[calc(100%+10px)] after:left-1/2 after:h-0 after:w-0 after:-translate-x-1/2 after:border-x-8 after:border-t-8 after:border-x-transparent after:border-t-white/90  after:content-['']"
+                          )}
+                        >
+                          Copied successfully
+                        </span>
+                      </Popover.Panel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Popover>
           </div>
 
           <button
