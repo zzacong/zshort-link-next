@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex h-screen flex-col items-center justify-center bg-gray-900 text-white">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 px-8 text-white">
         <Suspense fallback={<Spinner />}>
           <CreateLink />
         </Suspense>
