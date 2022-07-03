@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id String @id @default(cuid())
+model ShortLink {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  url       String   @db.VarChar(2000)
+  slug      String   @unique
+
+  @@index(slug)
 }
