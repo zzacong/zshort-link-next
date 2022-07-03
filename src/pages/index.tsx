@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { trpc } from '$lib/trpc'
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }])
+  const hello = trpc.useQuery(['slug.slugCheck', { slug: 'hello' }])
 
   return (
     <>
@@ -43,7 +43,7 @@ const Home: NextPage = () => {
           </ul>
 
           <div className="py-6 text-2xl">
-            {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
+            {hello.data ? <p>{hello.data.used}</p> : <p>Loading..</p>}
           </div>
         </div>
       </div>
