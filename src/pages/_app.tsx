@@ -4,7 +4,7 @@ import { withTRPC } from '@trpc/next'
 import superjson from 'superjson'
 import '$styles/globals.css'
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps: { ...pageProps } }: AppProps) {
   return <Component {...pageProps} />
 }
 
@@ -19,7 +19,7 @@ const getBaseUrl = () => {
 }
 
 export default withTRPC<AppRouter>({
-  config({ ctx }) {
+  config() {
     /**
      * If you want to use SSR, you need to use the server's full URL
      * @link https://trpc.io/docs/ssr

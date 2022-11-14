@@ -147,7 +147,7 @@ export default function CreateLinkForm() {
                 placeholder="rothaniel"
                 className={clsx(
                   'input',
-                  slugCheck.isFetched && slugCheck.data!.used && 'border-red-500 text-red-500'
+                  slugCheck.isFetched && slugCheck.data?.used && 'border-red-500 text-red-500'
                 )}
                 value={form.slug}
                 pattern={'^[-a-zA-Z0-9]+$'}
@@ -174,7 +174,7 @@ export default function CreateLinkForm() {
           <button
             type="submit"
             className="button bg-blue-500 hover:bg-blue-600"
-            disabled={slugCheck.isFetched && slugCheck.data!.used}
+            disabled={slugCheck.isFetched && slugCheck.data?.used}
           >
             Create
           </button>
