@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@headlessui/react': ^1.6.5
-  '@heroicons/react': ^1.0.6
+  '@heroicons/react': ^2.0.13
   '@prisma/client': ^4.0.0
   '@tailwindcss/forms': ^0.5.2
   '@trpc/client': ^9.25.3
@@ -39,7 +39,7 @@ specifiers:
 
 dependencies:
   '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
-  '@heroicons/react': 1.0.6_react@18.2.0
+  '@heroicons/react': 2.0.13_react@18.2.0
   '@prisma/client': 4.6.1_prisma@4.6.1
   '@trpc/client': 9.27.4_@trpc+server@9.27.4
   '@trpc/next': 9.27.4_lpmytvrtsrhzfskzwej4vbwnm4
@@ -134,8 +134,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@heroicons/react/1.0.6_react@18.2.0:
-    resolution: {integrity: sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==}
+  /@heroicons/react/2.0.13_react@18.2.0:
+    resolution: {integrity: sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==}
     peerDependencies:
       react: '>= 16'
     dependencies:

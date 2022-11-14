@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.0.13",
     "@prisma/client": "^4.0.0",
     "@trpc/client": "^9.25.3",
     "@trpc/next": "^9.25.3",
