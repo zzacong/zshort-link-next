@@ -19,6 +19,8 @@
     "paths": {
       "$components": ["components"],
       "$components/*": ["components/*"],
+      "$env": ["env"],
+      "$env/*": ["env/*"],
       "$lib": ["lib"],
       "$lib/*": ["lib/*"],
       "$pages": ["pages"],

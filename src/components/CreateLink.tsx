@@ -34,12 +34,15 @@ export default function CreateLinkForm() {
   const [form, setForm] = useState<Form>({ slug: '', url: '' })
   const url = `${window.location.origin}/r`
 
-  const slugCheck = trpc.useQuery(['slug.slugCheck', { slug: form.slug }], {
-    refetchOnReconnect: false,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  })
-  const createSlug = trpc.useMutation(['slug.createSlug'])
+  const slugCheck = trpc.slug.slugCheck.useQuery(
+    { slug: form.slug },
+    {
+      refetchOnReconnect: false,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  )
+  const createSlug = trpc.slug.createSlug.useMutation()
 
   const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     e => {
