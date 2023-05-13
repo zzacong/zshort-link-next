@@ -9,7 +9,7 @@ import { Popover } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import copy from 'copy-to-clipboard';
 
-import { api } from '$lib/api';
+import { api } from '~/lib/api';
 
 type Form = {
   slug: string;

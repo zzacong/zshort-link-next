@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
 
-import Spinner from '$components/Spinner';
+import Spinner from '~/components/Spinner';
 
-const CreateLink = dynamic(() => import('$components/CreateLink'), {
+const CreateLink = dynamic(() => import('~/components/CreateLink'), {
   ssr: false,
+  loading: () => <Spinner size={64} />,
 });
 
 export default function Home() {
@@ -18,9 +18,7 @@ export default function Home() {
       </Head>
 
       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 px-8 text-white">
-        <Suspense fallback={<Spinner />}>
-          <CreateLink />
-        </Suspense>
+        <CreateLink />
       </div>
     </>
   );

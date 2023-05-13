@@ -18,8 +18,8 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "$public/*": ["./public/*"],
-      "$*": ["./src/*"]
+      "~/public/*": ["./public/*"],
+      "~/*": ["./src/*"]
     }
   },
   "include": [".eslintrc.cjs", "next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],

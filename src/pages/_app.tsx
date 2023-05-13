@@ -1,7 +1,7 @@
 import type { AppType } from 'next/app';
 
-import { api } from '$lib/api';
-import '$styles/globals.css';
+import { api } from '~/lib/api';
+import '~/styles/globals.css';
 
 const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
   return <Component {...pageProps} />;

@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ZodError } from 'zod';
 
 import { z } from 'zod';
-import { prisma } from '$server/db/client';
+import { prisma } from '~/server/db/client';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
