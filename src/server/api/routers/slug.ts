@@ -1,7 +1,8 @@
-import { z } from 'zod'
-import { router, publicProcedure } from '../trpc'
+import { z } from 'zod';
 
-export const slugRouter = router({
+import { createTRPCRouter, publicProcedure } from '$server/api/trpc';
+
+export const slugRouter = createTRPCRouter({
   slugCheck: publicProcedure
     .input(
       z.object({
@@ -13,8 +14,8 @@ export const slugRouter = router({
         where: {
           slug: input.slug,
         },
-      })
-      return { used: count > 0 }
+      });
+      return { used: count > 0 };
     }),
   createSlug: publicProcedure
     .input(
@@ -30,9 +31,9 @@ export const slugRouter = router({
             slug: input.slug,
             url: input.url,
           },
-        })
+        });
       } catch (e) {
-        console.log(e)
+        console.log(e);
       }
     }),
-})
+});

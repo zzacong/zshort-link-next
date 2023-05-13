@@ -1,12 +1,12 @@
-import Head from 'next/head'
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
-import Spinner from '$components/Spinner'
+import Spinner from '$components/Spinner';
 
 const CreateLink = dynamic(() => import('$components/CreateLink'), {
   ssr: false,
-})
+});
 
 export default function Home() {
   return (
@@ -23,5 +23,5 @@ export default function Home() {
         </Suspense>
       </div>
     </>
-  )
+  );
 }
