@@ -42,8 +42,8 @@ const createInnerTRPCContext = (_opts: CreateContextOptions) => {
  *
  * @see https://trpc.io/docs/context
  */
-export const createTRPCContext = async (_opts: CreateNextContextOptions) => {
-  return Promise.resolve(createInnerTRPCContext({}));
+export const createTRPCContext = async (opts: CreateNextContextOptions) => {
+  return Promise.resolve({ ...createInnerTRPCContext({}), req: opts.req });
 };
 
 /**
